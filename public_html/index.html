@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>REvisar E14</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <!-- Custom styles for this page -->
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <main role="main" class="container">
+
+    <h1 class="pt-5 pb-3">Vamos a revisar estas elecciones</h1>
+    <p class="lead">La registraduría afirma que las "enmendaduras" en los formularios E-14 no son fraude.</p>
+    <p class="lead">
+      A muchos nos cuesta creer que esas afirmaciones son completamente ciertas. Sin embargo, para saber si lo que dice la registraduria
+      es verdad o no tenemos que revisar más de 90,000 formularios. A una sola persona le tomaría cerca de tres meses revisarlos.
+      Pero si lo hacemos entre todos podemos llegar al fondo de este asunto antes de la segunda vuelta.
+      <br/>Ayudar es muy fácil, .
+    </p>
+
+
+    <div class="container" id="the-meat">
+      <div class="row py-3">
+        <div class="col">
+          <p id="show-dep"></p>
+          <p id="show-mun"></p>
+          <p id="show-zon"></p>
+          <p id="show-mes"></p>
+          <p id="show-url"></p>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- <div id="Iframe-Master-CC-and-Rs" class="set-margin set-padding set-border set-box-shadow center-block-horiz">
+            <div class="responsive-wrapper 
+                   responsive-wrapper-wxh-572x612" style="-webkit-overflow-scrolling: touch; overflow: auto;">
+              <iframe id="pdf-iframe">
+                <p style="font-size: 110%;">
+                  <em>
+                    <strong>ERROR: </strong>
+                    An &#105;frame should be displayed here but your browser version does not support &#105;frames. </em>Please
+                  update your browser to its most recent version and try again.</p>
+              </iframe>
+            </div>
+          </div> -->
+          
+        </div>
+        <div class="col">
+          <!-- <iframe id="hidden_iframe" name="hidden_iframe" onload="submitted&amp;&amp;(window.location=&quot;index.html&quot;);myFunction();"
+            style="display:none"></iframe> -->
+          <form action="https://docs.google.com/forms/d/e/1FAIpQLSesi--wET07sp1DHJdzMdCK7fVSLeDfwthzK1meTQIDpAa2rA/formResponse" method="POST"
+            onsubmit="submitted=!0" target="hidden_iframe">
+            <div class="form-group">
+              <h5>Hay alguna inconsistencia en este formulario?</h5>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="entry.998384059" id="inlineRadio1" value="Sí" required>
+                <label class="form-check-label" for="inlineRadio1">Si</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="entry.998384059" id="inlineRadio2" value="No" required>
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+            </div>
+
+            <fieldset id="anomaly-found" disabled style="display:none;">
+              <div class="form-group">
+                <h5>A qué candidato beneficia?</h5>
+                <div class="form-check">
+                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-gustavo" value="Gustavo Petro">
+                  <label class="form-check-label" for="candidate-gustavo">
+                    Gustavo Petro
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-blanco" value="Promotores voto en blanco">
+                  <label class="form-check-label" for="candidate-blanco">
+                    Promotores voto en blanco
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-duque" value="Ivan Duque">
+                  <label class="form-check-label" for="candidate-duque">
+                    Ivan Duque
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-delacalle" value="Humberto de la Calle">
+                  <label class="form-check-label" for="candidate-delacalle">
+                    Humberto de la Calle
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-fajardo" value="Sergio Fajardo">
+                  <label class="form-check-label" for="candidate-fajardo">
+                    Sergio Fajardo
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-vargas" value="German Vargas Lleras">
+                  <label class="form-check-label" for="candidate-vargas">
+                    German Vargas Lleras
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <h5>Cuántos votos se amañaron?</h5>
+                <input type="number" name="entry.1838594143" placeholder="0">
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters,
+                  or emoji.
+                </small>
+              </div>
+
+            </fieldset>
+            <div class="form-group" id="hidden_entries" style="display: block;">
+              <input name="entry.1521194611" value="123459" id="no" readonly>
+              <input type="text" id="ip" name="entry.868329269" readonly>
+              <input type="text" id="id" name="entry.1187556274" readonly>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" value="Send">Enviar</button>
+            </div>
+
+          </form>
+          <!-- <div id="iframe-frame">
+                  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSesi--wET07sp1DHJdzMdCK7fVSLeDfwthzK1meTQIDpAa2rA/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+              </div> -->
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/lib/js-weighted-list.js"></script>
+  <script>
+
+    get_google_form_address = function () {
+
+    }
+    get_pdf_address = function () {
+
+    }
+    function myFunction() {
+      alert("The form was submitted");
+    }
+
+    $(document).ready(function () {
+
+      // determine form
+      $(function () {
+        $.getJSON("json-data/dep.json", function (json) {
+          var wl_dep = new WeightedList(json);
+          var this_dep = wl_dep.peek();
+          $("#show-dep").html(this_dep);
+          $.getJSON("json-data/dep/" + this_dep + ".json", function (json_mun) {
+            var wl_mun = new WeightedList(json_mun);
+            var this_mun = wl_mun.peek();
+            $("#show-mun").html(this_mun);
+            $.getJSON("json-data/mun/" + this_dep + "/" + this_mun + ".json", function (json_zon) {
+              var wl_zon = new WeightedList(json_zon);
+              var this_zon = wl_zon.peek();
+              $("#show-zon").html(this_zon);
+              $.getJSON("json-data/pto/" + this_dep + "/" + this_mun + "/" + this_zon + ".json", function (json_pto) {
+                var i = Math.floor(Math.random() * json_pto.length);
+                var this_mes = json_pto[i];
+                $("#no").attr("value", this_mes[1]);
+                load_form(this_mes[0])
+              });
+            });
+          });
+
+          function load_form(mesa_file_str) {
+            var prefix = "https://visor.e14digitalizacion.com/e14_divulgacion/";
+            $("#show-url").html(prefix + mesa_file_str);
+            //$("#pdf-iframe").attr("src", prefix + mesa_file_str);
+          };
+        });
+
+
+
+      });
+
+      // control logic of form
+      $(function () {
+        function checkIfAnomalyFound() {
+          if ($("#inlineRadio1").is(":checked")) {
+            $("#anomaly-found").prop('disabled', false);
+            $('#anomaly-found').show();
+          } else {
+            $("#anomaly-found").prop('disabled', true);
+            $('#anomaly-found').hide();
+          }
+        }
+        $("#inlineRadio1").change(checkIfAnomalyFound)
+        $("#inlineRadio2").change(checkIfAnomalyFound)
+      });
+
+      // establish ip 
+      $(function () {
+        $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+          function (json) {
+            $("#ip").attr("value", json.ip);
+          }
+        );
+      });
+
+      // establish unique id
+      $(function () {
+        if (typeof (Storage) !== "undefined") {
+          if (localStorage.getItem("id") == null) {
+            var id = '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem("id", id);
+            $("#id").attr("value", id);
+          } else {
+            $("#id").attr("value", localStorage.getItem("id"));
+          }
+        } else {
+          // Sorry! No Web Storage support..
+        }
+      });
+
+
+    });
+  </script>
+
+</body>
+
+</html>
