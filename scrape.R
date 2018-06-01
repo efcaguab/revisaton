@@ -55,8 +55,8 @@ pto_id <- "#pto"
 
 scrap_folder <- "scrapped-data"
 break_length <- 5
-dep_start <- 1
-dep_done <- 14
+dep_start <- 5
+dep_end <- 5
 
 # Scrap data --------------------------------------------------------------
 
@@ -70,7 +70,7 @@ wait(break_length * 4)
 departamentos <- get_dropdown(remDr, dep_id)
 
 # per departamento
-for(l in (nrow(departamentos) - dep_done):dep_start){
+for(l in dep_start:dep_end){
   
   select_dropdown_child(remDr, dep_id, l)
   log_progress("selected departamento -", departamentos$string[l])
@@ -78,7 +78,7 @@ for(l in (nrow(departamentos) - dep_done):dep_start){
   municipios <- get_dropdown(remDr, mun_id)
   
   # per municipio
-  for(k in nrow(municipios):1){
+  for(k in 1:nrow(municipios)){
     
     select_dropdown_child(remDr, mun_id, k)
     log_progress("selected municipio -", municipios$string[k])
