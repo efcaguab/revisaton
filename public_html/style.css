@@ -1,5 +1,17 @@
-body {
+/* header {
   background-color: #ede7f6;
+} */
+
+/* footer {
+  background-color: lightcyan;
+} */
+
+.container {
+  max-width: 690px;
+}
+
+hr {
+  margin: 0px;
 }
 
 #iframe-frame {
@@ -25,7 +37,7 @@ body {
     -webkit-overflow-scrolling: touch; overflow: auto; */
   
 }
- 
+
 .responsive-wrapper iframe {
   position: absolute;
   top: 0;

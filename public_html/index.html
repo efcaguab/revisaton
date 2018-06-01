@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>REvisar E14</title>
+  <title>Hubo fraude con los formularios E-14?</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
@@ -17,20 +17,57 @@
 
 <body>
 
-  <main role="main" class="container">
-
-    <h1 class="pt-5 pb-3">Vamos a revisar estas elecciones</h1>
-    <p class="lead">La registraduría afirma que las "enmendaduras" en los formularios E-14 no son fraude.</p>
-    <p class="lead">
-      A muchos nos cuesta creer que esas afirmaciones son completamente ciertas. Sin embargo, para saber si lo que dice la registraduria
-      es verdad o no tenemos que revisar más de 90,000 formularios. A una sola persona le tomaría cerca de tres meses revisarlos.
-      Pero si lo hacemos entre todos podemos llegar al fondo de este asunto antes de la segunda vuelta.
-      <br/>Ayudar es muy fácil, .
-    </p>
 
 
-    <div class="container" id="the-meat">
-      <div class="row py-3">
+  <header>
+    <div class="container">
+      <h1 class="pt-5 pb-3 display-4">Entre todos vamos a averiguar si hubo fraude</h1>
+      <div class="pb-5">
+        <div class="pb-4">
+          <p class="lead">La registraduría afirma que las "enmendaduras" en los formularios E-14 no son fraude.</p>
+          <p class="lead">
+            Después de ver tantos ejemplos en las redes, a muchos nos cuesta creer que esas afirmaciones son completamente ciertas. Sin
+            embargo, para saber si lo que dice la registraduría es verdad o no hay que revisar más de 90,000 formularios.
+            A una sola persona, esta tarea le tomaría cerca de tres meses. Trabajando juntos, podemos llegar al fondo de
+            este asunto en mucho menos tiempo.
+          </p>
+          <p class="lead">
+            Vamos en el 2%. Ayudar es muy fácil.
+          </p>
+          <div class="pb-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 2%;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100">2%</div>
+            </div>
+          </div>
+          <p class="lead">
+            En esta página web puedes poner tu granito de arena y revisar un par de formularios E-14 en menos de un minuto.
+          </p>
+
+        </div>
+
+
+        <div class="pb-2">
+          <a class="btn btn-primary btn-lg" href="#the-meat" role="button">Si, quiero ayudar</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <hr  id="the-meat">
+
+  <script type="text/javascript">var submitted = false;</script>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)  {window.location='http://127.0.0.1:5500?x=' + Date.now() + '#the-meat'; success_alert()}"></iframe>
+
+  <main role="main">
+
+    <div class="container" style="height: 0px;">
+      <div class="d-flex justify-content-center small mt-4" style="position: relative;" id="alert-container">
+
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <!-- <div class="row py-3">
         <div class="col">
           <p id="show-dep"></p>
           <p id="show-mun"></p>
@@ -38,44 +75,45 @@
           <p id="show-mes"></p>
           <p id="show-url"></p>
         </div>
+      </div> -->
 
-      </div>
-      <div class="row">
+      <div class="row py-3">
+
         <div class="col">
-          <!-- <div id="Iframe-Master-CC-and-Rs" class="set-margin set-padding set-border set-box-shadow center-block-horiz">
-            <div class="responsive-wrapper 
-                   responsive-wrapper-wxh-572x612" style="-webkit-overflow-scrolling: touch; overflow: auto;">
-              <iframe id="pdf-iframe">
-                <p style="font-size: 110%;">
-                  <em>
-                    <strong>ERROR: </strong>
-                    An &#105;frame should be displayed here but your browser version does not support &#105;frames. </em>Please
-                  update your browser to its most recent version and try again.</p>
-              </iframe>
-            </div>
-          </div> -->
-          
+          <h2>Paso 1:</h2>
+          <p class="lead">Descarga un formulario aleatorio de la página de la registraduría usando el siguiente botón y revisa si tiene "tachones",
+            números raros, o enmendaduras convenientes.</p>
+          <div class="py-3">
+            <a class="btn btn-outline-primary" href="#" role="button" id="form-download-button" target="_blank"></a>
+          </div>
+
         </div>
+      </div>
+      <div class="row py-3">
         <div class="col">
-          <!-- <iframe id="hidden_iframe" name="hidden_iframe" onload="submitted&amp;&amp;(window.location=&quot;index.html&quot;);myFunction();"
-            style="display:none"></iframe> -->
+
+
+          <h2>Paso 2:</h2>
           <form action="https://docs.google.com/forms/d/e/1FAIpQLSesi--wET07sp1DHJdzMdCK7fVSLeDfwthzK1meTQIDpAa2rA/formResponse" method="POST"
-            onsubmit="submitted=!0" target="hidden_iframe">
-            <div class="form-group">
-              <h5>Hay alguna inconsistencia en este formulario?</h5>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="entry.998384059" id="inlineRadio1" value="Sí" required>
-                <label class="form-check-label" for="inlineRadio1">Si</label>
+            target="hidden_iframe" onsubmit="submitted=true;" id="the-form">
+            <fieldset id="main-question" disabled>
+              <div class="form-group">
+                <p id="form-title" class="lead mb-1"></p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="entry.998384059" id="inlineRadio1" value="Sí" required>
+                  <label class="form-check-label" for="inlineRadio1">Si</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="entry.998384059" id="inlineRadio2" value="No" required>
+                  <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="entry.998384059" id="inlineRadio2" value="No" required>
-                <label class="form-check-label" for="inlineRadio2">No</label>
-              </div>
-            </div>
+            </fieldset>
+
 
             <fieldset id="anomaly-found" disabled style="display:none;">
               <div class="form-group">
-                <h5>A qué candidato beneficia?</h5>
+                <p class="lead">A qué candidato beneficia?</p>
                 <div class="form-check">
                   <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-gustavo" value="Gustavo Petro">
                   <label class="form-check-label" for="candidate-gustavo">
@@ -115,32 +153,67 @@
                 </div>
               </div>
               <div class="form-group">
-                <h5>Cuántos votos se amañaron?</h5>
+                <p class="lead">Cuántos votos se amañaron?</p>
                 <input type="number" name="entry.1838594143" placeholder="0">
                 <small id="passwordHelpBlock" class="form-text text-muted">
-                  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters,
-                  or emoji.
+                  Calcula diferencia entre la cantidad de votos sin y con enmendadura.
                 </small>
               </div>
 
             </fieldset>
-            <div class="form-group" id="hidden_entries" style="display: block;">
+            <fieldset id="email-fieldset" disabled>
+              <div class="form-group mb-2">
+                <label for="InputEmail1">Tu dirección de correo</label>
+                <input type="email" name="entry.1292236583" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie.</small>
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="notificationInput" name="entry.1324771847" value="yes">
+                <label class="form-check-label" for="Check1">Notificarme cuando los resultados estén disponibles</label>
+              </div>
+            </fieldset>
+            <div class="form-group" id="hidden_entries" style="display: none;">
               <input name="entry.1521194611" value="123459" id="no" readonly>
               <input type="text" id="ip" name="entry.868329269" readonly>
               <input type="text" id="id" name="entry.1187556274" readonly>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary" value="Send">Enviar</button>
+              <button type="submit" class="btn btn-outline-primary" value="Send" , id="sendButton" disabled>Enviar respuesta</button>
+              <small id="submitButtonHelp" class="form-text text-muted">Porfa, revisa que el número de formulario coincida.</small>
             </div>
 
           </form>
-          <!-- <div id="iframe-frame">
-                  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSesi--wET07sp1DHJdzMdCK7fVSLeDfwthzK1meTQIDpAa2rA/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-              </div> -->
+
         </div>
       </div>
     </div>
   </main>
+
+  <hr>
+
+  <footer class="py-5">
+    <div class="container">
+      <h3 class="py-2">Quiero saber más</h3>
+      <h5>¿Por qué y para qué?</h5>
+      <p>Hay muchos ejemplos en las redes sociales de formularios con enmendaduras favoreciendo a determinados candidatos. Por ahora
+        todos los ejemplos no pasan de anécdotas y la registraduría insiste que son "fake news". Necesitamos datos reales
+        para llegar al fondo del asunto y saber si hubo fraude sistemático o no.</p>
+      <h5>¿Cómo saber si hubo fraude?</h5>
+      <p>Hay dos opciones: 1) los tachones en los formularios E-14 son mayoritariamente errores humanos y producto del azar, ó
+        2) los tachones fueron hechos intencionalmente para beneficiar o perjudicar algún candidato.</p>
+      <p>Para saber cuál de las dos opciones es más probable hay que comparar la distribución de las enmendaduras con la distribución que esperaríamos si estas estuvieran distribuidas aleatoriamente. Si los tachones son accidentales, los errores deben afectar a todos
+        los candidatos en proporciones similares y ocurrir con la misma frecuencia en todos los municipios.</p>
+      <p>Si por el contrario las enmendaduras son sistemáticas, habría una diferencia entre la distribución real y la aleatoria. Entre más diferentes sean estas dos distribuciones, mayor la probabilidad
+        de fraude electoral.</p>
+      <h5>¿Para cuándo?</h5>
+      <p>Tan pronto como haya una proporción significativa de formularios revisados analizaremos los dátos y publicaremos los
+        resultados aquí. Compárte esta página con tus amigos para saber si hubo fraude lo más
+        pronto posible. </p>
+      <h5>¿Qué pasa con mis datos personales?</h5>
+      <p>Darnos tu email es opcional. Solo usaremos tu email para notificarte de los resultados si así lo quieres o en caso de que tengamos alguna pregunta sobre los formularios que revisaste.
+      </p>
+    </div>
+  </footer>
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
@@ -152,16 +225,6 @@
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/lib/js-weighted-list.js"></script>
   <script>
-
-    get_google_form_address = function () {
-
-    }
-    get_pdf_address = function () {
-
-    }
-    function myFunction() {
-      alert("The form was submitted");
-    }
 
     $(document).ready(function () {
 
@@ -183,20 +246,30 @@
                 var i = Math.floor(Math.random() * json_pto.length);
                 var this_mes = json_pto[i];
                 $("#no").attr("value", this_mes[1]);
-                load_form(this_mes[0])
+                setup_download_button(this_mes);
+                setup_form_title(this_mes);
               });
             });
           });
 
-          function load_form(mesa_file_str) {
+          function setup_download_button(mesa_file) {
             var prefix = "https://visor.e14digitalizacion.com/e14_divulgacion/";
-            $("#show-url").html(prefix + mesa_file_str);
+            $("#form-download-button").attr("href", prefix + mesa_file[0]);
+            $("#form-download-button").html("Descargar formulario " + expand_form_name(mesa_file[1]));
             //$("#pdf-iframe").attr("src", prefix + mesa_file_str);
           };
+
+          function setup_form_title(mesa_file) {
+            var prefix = "Encontraste algún problema en el formulario ";
+            var suffix = "?"
+            $("#form-title").html(prefix + expand_form_name(mesa_file[1]) + suffix);
+          };
+
+          function expand_form_name(form_name) {
+            var expanded_form_name = form_name.substring(0, 1) + "-" + form_name.substring(1, 3) + "-" + form_name.substring(3, 5) + "-" + form_name.substring(5, 7);
+            return expanded_form_name
+          };
         });
-
-
-
       });
 
       // control logic of form
@@ -210,8 +283,26 @@
             $('#anomaly-found').hide();
           }
         }
-        $("#inlineRadio1").change(checkIfAnomalyFound)
-        $("#inlineRadio2").change(checkIfAnomalyFound)
+
+        $("#inlineRadio1").change(checkIfAnomalyFound);
+        $("#inlineRadio2").change(checkIfAnomalyFound);
+
+        // actions on submit: end email to local storage and timestamp
+        $("#the-form").submit(function () {
+          if (typeof (Storage) !== "undefined") {
+            var email = $("#emailInput").val();
+            localStorage.setItem("email", email);
+            localStorage.setItem("lastSubmission", Date.now())
+          } else {
+            // Sorry! No Web Storage support..
+          }
+        });
+
+        $("#form-download-button").click(function () {
+          $("#main-question").prop('disabled', false);
+          $("#email-fieldset").prop('disabled', false);
+          $("#sendButton").prop('disabled', false);
+        });
       });
 
       // establish ip 
@@ -238,8 +329,40 @@
         }
       });
 
-
+      // establish email
+      $(function () {
+        if (typeof (Storage) !== "undefined") {
+          if (!(localStorage.getItem("email") == null || localStorage.getItem("email") == undefined || localStorage.getItem("email") == "")) {
+            $("#emailInput").attr("value", localStorage.getItem("email"));
+          }
+        } else {
+          // Sorry! No Web Storage support..
+        }
+      });
     });
+
+    // alert logic
+    $(function () {
+
+      function success_alert() {
+        var html_alert = "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Gracias!</strong> Registrámos tu respuesta. Ayudanos con otro formulario!</div>"
+        $("#alert-container").html(html_alert)
+        setTimeout(function () {
+          $("#submmission-successful-alert").alert('close')
+        }, 4700);
+      };
+
+      if (typeof (Storage) !== "undefined") {
+        if ((Date.now() - localStorage.getItem("lastSubmission") < 5000)) {
+          success_alert()
+        }
+      } else {
+        // Sorry! No Web Storage support..
+      }
+    });
+
+
+
   </script>
 
 </body>
