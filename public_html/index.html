@@ -128,6 +128,9 @@
           <div class="py-3">
             <a class="btn btn-outline-primary" href="#" role="button" id="form-download-button" target="_blank"></a>
           </div>
+          <div>
+            <p>Este formulario corresponde a <span id="form-metadata"></span></p>
+          </div>
           <div class="py-3">
             <div class="alert alert-warning" role="alert">
               Recuerda ser cuidadoso. Juega con el zoom, compara diferentes números y lee las observaciones. Hay algunos que pueden parecer fraude y no lo son.
@@ -355,12 +358,14 @@
               var wl_zon = new WeightedList(json_zon);
               var this_zon = wl_zon.peek();
               $("#show-zon").html(this_zon);
-              $.getJSON("json-data/pto/" + this_dep + "/" + this_mun + "/" + this_zon + ".json", function (json_pto) {
+              $.getJSON("json-data/pto/" + this_dep + "/" + this_mun + "/" + this_zon + ".json", function (json_pto_full) {
+                var json_pto = json_pto_full.df
                 var i = Math.floor(Math.random() * json_pto.length);
                 var this_mes = json_pto[i];
                 $("#no").attr("value", this_mes[1]);
                 setup_download_button(this_mes);
                 setup_form_title(this_mes);
+                setup_form_metadata(json_pto_full.dep, json_pto_full.mun, this_mes);
               });
             });
           });
@@ -381,6 +386,12 @@
             var expanded_form_name = form_name.substring(0, 1) + "-" + form_name.substring(1, 3) + "-" + form_name.substring(3, 5) + "-" + form_name.substring(5, 7);
             return expanded_form_name
           };
+
+          function setup_form_metadata(dep, mun, mesa){
+            $("#form-metadata").html("la mesa " +  mesa[3] + " de " + mesa[2] + " en " + mun + ", " + dep)
+
+          };
+
         });
       });
 
