@@ -499,9 +499,14 @@
     // alert logic
     $(function () {
 
-      function success_alert() {
-        var html_alert = "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Gracias!</strong> Si puedes, revisa un formulario más o <a href='http://www.revisar-e14.com/#share'>comparte</a> esta página con tus amigos.</div>"
-        $("#alert-container").html(html_alert)
+      var alerts = {
+        "basic" : "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Gracias!</strong> Si puedes, revisa un formulario más o <a href='http://www.revisar-e14.com/#share'>comparte</a> esta página con tus amigos.</div>", 
+        "third" : "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Super!</strong> Ya has revisado .</div>" 
+      }
+
+      function success_alert(alert_html) {
+        
+        $("#alert-container").html(alert_html)
         setTimeout(function () {
           $("#submmission-successful-alert").alert('close')
         }, 10000);
@@ -509,7 +514,8 @@
 
       if (typeof (Storage) !== "undefined") {
         if ((Date.now() - localStorage.getItem("lastSubmission") < 5000)) {
-          success_alert()
+        
+          success_alert(alerts.basic);
         }
       } else {
         // Sorry! No Web Storage support..
