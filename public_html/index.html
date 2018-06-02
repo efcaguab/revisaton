@@ -428,8 +428,19 @@
           if (typeof (Storage) !== "undefined") {
             var email = $("#emailInput").val();
             localStorage.setItem("email", email);
-            localStorage.setItem("lastSubmission", Date.now())
+            this_submission_date = Date.now()
+            localStorage.setItem("lastSubmission", this_submission_date)
             localStorage.setItem("notification", document.getElementById('notificationInput').checked)
+            // array with submissions
+            if (localStorage.getItem("submissions") == null || localStorage.getItem("submissions") == undefined) {
+              var submissions = [this_submission_date]
+              localStorage.setItem("submissions", JSON.stringify(submissions));
+            } else {
+              var submissions = JSON.parse(localStorage.getItem("submissions"));
+              submissions.push(Date.now());
+              localStorage.setItem("submissions", submissions);
+            }
+
           } else {
             // Sorry! No Web Storage support..
           }
