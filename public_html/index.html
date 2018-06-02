@@ -264,7 +264,7 @@
 
         </div>
       </div>
-      <div class="sharethis-inline-share-buttons py-3"></div>
+      <div class="sharethis-inline-share-buttons py-3" id="share"></div>
     </div>
   </main>
 
@@ -422,11 +422,11 @@
     $(function () {
 
       function success_alert() {
-        var html_alert = "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Gracias!</strong> Si puedes, revisa un formulario más o compárte esta página con tus amigos.</div>"
+        var html_alert = "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Gracias!</strong> Si puedes, revisa un formulario más o <a href='#share'>comparte</a> esta página con tus amigos.</div>"
         $("#alert-container").html(html_alert)
         setTimeout(function () {
           $("#submmission-successful-alert").alert('close')
-        }, 4700);
+        }, 10000);
       };
 
       if (typeof (Storage) !== "undefined") {
