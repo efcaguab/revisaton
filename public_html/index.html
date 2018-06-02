@@ -15,7 +15,7 @@
 
     gtag('config', 'UA-753645-15');
   </script>
-
+  
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -149,13 +149,14 @@
               <div class="form-group">
                 <p id="form-title" class="lead mb-1"></p>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="entry.998384059" id="inlineRadio1" value="Sí" required>
-                  <label class="form-check-label" for="inlineRadio1">Si</label>
-                </div>
-                <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="entry.998384059" id="inlineRadio2" value="No" required>
                   <label class="form-check-label" for="inlineRadio2">No</label>
                 </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="entry.998384059" id="inlineRadio1" value="Sí" required>
+                  <label class="form-check-label" for="inlineRadio1">Si</label>
+                </div>
+                
               </div>
             </fieldset>
 
@@ -184,48 +185,79 @@
                     </div>
               </div>
 
-              <div class="form-group">
-                <p class="lead">¿A qué candidato beneficia?</p>
-                <div class="form-check">
-                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-gustavo" value="Gustavo Petro">
-                  <label class="form-check-label" for="candidate-gustavo">
-                    Gustavo Petro
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-blanco" value="Promotores voto en blanco">
-                  <label class="form-check-label" for="candidate-blanco">
-                    Promotores voto en blanco
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-duque" value="Ivan Duque">
-                  <label class="form-check-label" for="candidate-duque">
-                    Ivan Duque
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-delacalle" value="Humberto de la Calle">
-                  <label class="form-check-label" for="candidate-delacalle">
-                    Humberto de la Calle
-                  </label>
-                </div>
+              <div>
+                <div >
+                  <div class="form-group">
+                      <p class="lead">Este problema...</p>
+                    <div class="form-check">
+                        <input class="form-check-input check-beneficia-perjudica" type="radio" name="entry.697655585" id="beneficia-form" value="beneficia" required>
+                        <label class="form-check-label" for="beneficia-form">
+                          Beneficia a un candidato
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input check-beneficia-perjudica" type="radio" name="entry.697655585" id="perjudica-form" value="perjudica" required>
+                        <label class="form-check-label" for="perjudica-form">
+                          Perjudica a un candidato
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input check-beneficia-perjudica" type="radio" name="entry.697655585" id="neutral-form" value="neutral" required>
+                        <label class="form-check-label" for="neutral-form">
+                          Ni beneficia ni perjudica
+                        </label>
+                    </div>
+                  </div>
 
-                <div class="form-check">
-                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-fajardo" value="Sergio Fajardo">
-                  <label class="form-check-label" for="candidate-fajardo">
-                    Sergio Fajardo
-                  </label>
                 </div>
-                <div class="form-check">
-                  <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-vargas" value="German Vargas Lleras">
-                  <label class="form-check-label" for="candidate-vargas">
-                    German Vargas Lleras
-                  </label>
+                <div >
+                    <div class="form-group">
+                        <p class="lead">¿A quién?</p>
+                        <div class="form-check">
+                          <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-gustavo" value="Gustavo Petro">
+                          <label class="form-check-label" for="candidate-gustavo">
+                            Gustavo Petro
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-blanco" value="Promotores voto en blanco">
+                          <label class="form-check-label" for="candidate-blanco">
+                            Promotores voto en blanco
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-duque" value="Ivan Duque">
+                          <label class="form-check-label" for="candidate-duque">
+                            Ivan Duque
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-delacalle" value="Humberto de la Calle">
+                          <label class="form-check-label" for="candidate-delacalle">
+                            Humberto de la Calle
+                          </label>
+                        </div>
+        
+                        <div class="form-check">
+                          <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-fajardo" value="Sergio Fajardo">
+                          <label class="form-check-label" for="candidate-fajardo">
+                            Sergio Fajardo
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-vargas" value="German Vargas Lleras">
+                          <label class="form-check-label" for="candidate-vargas">
+                            German Vargas Lleras
+                          </label>
+                        </div>
+                      </div>
+
                 </div>
               </div>
+
+              
               <div class="form-group">
-                <p class="lead">Cuántos votos se amañaron?</p>
+                <p class="lead">¿Cuántos votos se amañaron?</p>
                 <input type="number" name="entry.1838594143" placeholder="0">
                 <small id="passwordHelpBlock" class="form-text text-muted">
                   Calcula diferencia entre la cantidad de votos sin y con enmendadura.
