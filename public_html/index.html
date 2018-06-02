@@ -73,11 +73,11 @@
             este asunto en mucho menos tiempo.
           </p>
           <p class="lead">
-            Vamos en el 0.658% y ayudar es muy fácil.
+            Vamos en el <span id="progress"></span>% y ayudar es muy fácil.
           </p>
           <div class="pb-3">
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100">0%</div>
+              <div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100", id="main-progress-bar">0%</div>
             </div>
           </div>
           <p class="lead">
@@ -343,6 +343,19 @@
   <script>
 
     $(document).ready(function () {
+
+      // determine progress
+      $(function(){
+        var base_counter = {"n_form": 625, "date": 1527973043257};
+        var initial_counter = {"n_form": 0, "date": 1527912216941};
+        var prec = 1000;
+        var rate = (base_counter.n_form - initial_counter.n_form) / (base_counter.date - initial_counter.date);
+        var current_count = base_counter.n_form + (Date.now() - base_counter.date) * rate
+        var progress = Math.round(current_count / 94250 * 100 * prec) / prec
+        $("#progress").html(progress);
+        $("#main-progress-bar").html(Math.round(progress) + "%")
+        $("#main-progress-bar").css("width", Math.round(progress) + "%")
+      });
 
       // determine form
       $(function () {
