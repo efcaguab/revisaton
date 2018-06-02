@@ -371,6 +371,7 @@
             var email = $("#emailInput").val();
             localStorage.setItem("email", email);
             localStorage.setItem("lastSubmission", Date.now())
+            localStorage.setItem("notification", document.getElementById('notificationInput').checked)
           } else {
             // Sorry! No Web Storage support..
           }
@@ -392,9 +393,10 @@
         );
       });
 
-      // establish unique id
+      // establish unique fields
       $(function () {
         if (typeof (Storage) !== "undefined") {
+          // establish id
           if (localStorage.getItem("id") == null) {
             var id = '_' + Math.random().toString(36).substr(2, 9);
             localStorage.setItem("id", id);
@@ -402,16 +404,13 @@
           } else {
             $("#id").attr("value", localStorage.getItem("id"));
           }
-        } else {
-          // Sorry! No Web Storage support..
-        }
-      });
-
-      // establish email
-      $(function () {
-        if (typeof (Storage) !== "undefined") {
+          // establish email
           if (!(localStorage.getItem("email") == null || localStorage.getItem("email") == undefined || localStorage.getItem("email") == "")) {
             $("#emailInput").attr("value", localStorage.getItem("email"));
+          }
+          // establish cjecked
+          if (!(localStorage.getItem("notification") == null || localStorage.getItem("notification") == undefined)){
+            document.getElementById('notificationInput').checked = localStorage.getItem("notification");
           }
         } else {
           // Sorry! No Web Storage support..
