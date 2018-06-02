@@ -37,6 +37,16 @@ Source: CRAN
 Version: 0.2.0
 Hash: e8805df54c65ac96d50235c44a82615c
 
+Package: backports
+Source: CRAN
+Version: 1.1.2
+Hash: 5ae7b3466e529e4400951ca18c137e40
+
+Package: base64enc
+Source: CRAN
+Version: 0.1-3
+Hash: c590d29e555926af053055e23ee79efb
+
 Package: bindr
 Source: CRAN
 Version: 0.1.1
@@ -100,6 +110,12 @@ Requires: BH, R6, Rcpp, assertthat, bindrcpp, glue, magrittr,
     pkgconfig, plogr, rlang, tibble
 Hash: 4c5c3cb7b8ac1fddfe6a3ab12a18f544
 
+Package: evaluate
+Source: CRAN
+Version: 0.10.1
+Requires: stringr
+Hash: 54d95f4ec6d0300100413ed0127d89ae
+
 Package: git2r
 Source: CRAN
 Version: 0.21.0
@@ -110,11 +126,22 @@ Source: CRAN
 Version: 1.2.0
 Hash: 381e42baedecc633c0e547a0c7ca9de7
 
+Package: highr
+Source: CRAN
+Version: 0.6
+Hash: aa3d5b7912b5fed4b546ed5cd2a1760b
+
 Package: hms
 Source: CRAN
 Version: 0.4.2
 Requires: pkgconfig, rlang
 Hash: b4096a4f6a6736138e9a825c2baaacf0
+
+Package: htmltools
+Source: CRAN
+Version: 0.3.6
+Requires: Rcpp, digest
+Hash: b24df7ea0856eab6618f6a56016d940d
 
 Package: httr
 Source: CRAN
@@ -127,10 +154,22 @@ Source: CRAN
 Version: 1.5
 Hash: 9c51936d8dd00b2f1d4fe9d10499694c
 
+Package: knitr
+Source: CRAN
+Version: 1.20
+Requires: evaluate, highr, markdown, stringr, yaml
+Hash: 9c6b215d1d02b97586c8232e94533e6a
+
 Package: magrittr
 Source: CRAN
 Version: 1.5
 Hash: bdc4d48c3135e8f3b399536ddf160df4
+
+Package: markdown
+Source: CRAN
+Version: 0.8
+Requires: mime
+Hash: 045d7c594d503b41f1c28946d076c8aa
 
 Package: memoise
 Source: CRAN
@@ -189,6 +228,19 @@ Package: rlang
 Source: CRAN
 Version: 0.2.0
 Hash: 647e2e50a72557d1a770dcd6701e562b
+
+Package: rmarkdown
+Source: CRAN
+Version: 1.9
+Requires: base64enc, evaluate, htmltools, jsonlite, knitr, mime,
+    rprojroot, stringr, yaml
+Hash: ab7f84e6f41ed8d8e8b9a2031cf631f8
+
+Package: rprojroot
+Source: CRAN
+Version: 1.3-2
+Requires: backports
+Hash: a25c3f70c166fb3fbabc410eb32b6366
 
 Package: rstudioapi
 Source: CRAN
