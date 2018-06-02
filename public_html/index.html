@@ -344,13 +344,22 @@
 
     $(document).ready(function () {
 
+      // load global vars
+      var global_params;
+      $.ajax({
+        url: "json-data/global-vars.json",
+        dataType: 'json',
+        async: false,
+        success: function (json) {
+          global_params = json
+        }
+      });
+
       // determine progress
       $(function(){
-        var base_counter = {"n_form": 625, "date": 1527973043257};
-        var initial_counter = {"n_form": 0, "date": 1527912216941};
         var prec = 1000;
-        var rate = (base_counter.n_form - initial_counter.n_form) / (base_counter.date - initial_counter.date);
-        var current_count = base_counter.n_form + (Date.now() - base_counter.date) * rate
+        var rate = global_params.rate;
+        var current_count = Number(global_params.n_submissions) + Number((Date.now() - global_params.max_date) * rate)
         var progress = Math.round(current_count / 94250 * 100 * prec) / prec
         $("#progress").html(progress);
         $("#main-progress-bar").html(Math.round(progress) + "%")
