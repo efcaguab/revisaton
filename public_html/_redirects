@@ -1,5 +1,5 @@
 # Redirect default Netlify subdomain to primary domain
-https://revisar-e14.netlify.com/* https://www.revisar-e14.com/:splat 301!
+https://revisar-e14.netlify.com/* http://www.revisar-e14.com/:splat 301!
 
 # These extra rules are required because HTTPS is not forced
-http://revisar-e14.netlify.com/* https://www.revisar-e14.com/:splat 301!
+http://revisar-e14.netlify.com/* http://www.revisar-e14.com/:splat 301!
