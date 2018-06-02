@@ -153,8 +153,31 @@
 
 
             <fieldset id="anomaly-found" disabled style="display:none;">
+
               <div class="form-group">
-                <p class="lead">A qué candidato beneficia?</p>
+                  <p class="lead">¿Qué tipo de problema?</p>
+                  <div class="form-check">
+                      <input class="form-check-input check-problema" type="radio" name="entry.748403896" id="problema-numero" value="numeros" required>
+                      <label class="form-check-label" for="problema-numero">
+                        Con los números
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input check-problema" type="radio" name="entry.748403896" id="problema-total" value="total" required>
+                      <label class="form-check-label" for="problema-total">
+                        Con el total de votos
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input check-problema" type="radio" name="entry.748403896" id="problema-jurados" value="jurados" required>
+                      <label class="form-check-label" for="problema-jurados">
+                          Con las firmas o cédulas de los jurados
+                      </label>
+                    </div>
+              </div>
+
+              <div class="form-group">
+                <p class="lead">¿A qué candidato beneficia?</p>
                 <div class="form-check">
                   <input class="form-check-input check-candidato" type="radio" name="entry.833302168" id="candidate-gustavo" value="Gustavo Petro">
                   <label class="form-check-label" for="candidate-gustavo">
@@ -199,6 +222,12 @@
                 <small id="passwordHelpBlock" class="form-text text-muted">
                   Calcula diferencia entre la cantidad de votos sin y con enmendadura.
                 </small>
+              </div>
+
+              
+              <div class="form-group">
+                <label for="comentarioField" class="lead">¿Algún comentario adicional?</label>
+                <input class="form-control" type="text" name="entry.664185243">
               </div>
 
             </fieldset>
@@ -386,7 +415,7 @@
     $(function () {
 
       function success_alert() {
-        var html_alert = "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Gracias!</strong> Registrámos tu respuesta. Ayudanos con otro formulario!</div>"
+        var html_alert = "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Gracias!</strong> Registrámos tu respuesta. Si puedes, revisa un formulario más!</div>"
         $("#alert-container").html(html_alert)
         setTimeout(function () {
           $("#submmission-successful-alert").alert('close')
