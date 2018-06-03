@@ -1,6 +1,7 @@
 ---
 title: "Calentando motores"
 subtitle: "Primer reporte - 3 Jun, 2018 9:30a.m."
+short_title: "Primer reporte"
 output: 
   html_document:
     css: 
@@ -16,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(magrittr)
 library(ggplot2)
 
-responses <- readr::read_csv("../../../e14-main-form.csv")
+responses <- readr::read_csv("../../../e14-main-form_2018-06-04 2-12-15 am +1200.csv")
 ```
 
 <div class="lead">
@@ -50,9 +51,9 @@ p <- per_id %>%
 
 plotly::ggplotly(p) 
 ```
-<p class="text-muted pt-2 caption">El promedio de formularios E-14 revisados por cada ciudadano es `r round(mean(per_id$n))`. Aunque la mitad de personas revisa 10 o menos formularios, algunas personas **realmente comprometidas** han revisado más de 100 formularios!<p>
+<p class="text-muted pt-2 caption">El promedio de formularios E-14 revisados por cada ciudadano es `r round(mean(per_id$n))`. La mitad de personas revisa 10 formularios o menos, sin embargo algunas personas **realmente comprometidas** han revisado más de 100 formularios!<p>
 
-Aúnque es muy pronto para analizar los datos de la revisión. Por ahora solo queda darles **gracias** por su apoyo y felicidades a aquellos que han contribuido significativamente. Vale mucho.
+Aún es muy pronto para analizar los datos de la revisión. Por ahora solo queda darles **gracias** por su apoyo y felicidades a aquellos que han contribuido significativamente. Vale mucho.
 
 Compartan la herramienta con sus contactos con la etiqueta <a href="https://twitter.com/intent/tweet?text=Ayuda%20a%20saber%20si%20hubo%20fraude%20con%20los%20E-14&hashtags=YoRevisoLosE14,FraudeElectoral&url=http%3A%2F%2Frevisar-e14.com">**#YoRevisoLosE14**</a> en Twitter o Facebook. Vamos a demostrar que los ciudadanos lo hacemos mejor.
 

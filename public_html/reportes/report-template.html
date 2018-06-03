@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$" $if(dir)$ dir="$dir$" $endif$>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-753645-15"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-753645-15');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" /> $for(author-meta)$
+  <meta name="author" content="$author-meta$" /> $endfor$ $if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" /> $endif$ $if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" /> $endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  $for(css)$
+  <link rel="stylesheet" href="$css$" /> $endfor$ $if(math)$ $math$ $endif$
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  $for(header-includes)$ $header-includes$ $endfor$
+
+  <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b1235a1093c0e0011b03781&product=inline-share-buttons' async='async'></script>
+
+</head>
+
+<body>
+  $for(include-before)$ $include-before$ $endfor$ $if(title)$
+  <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="/reportes">Reportes</a></li>
+        $if(short_title)$
+        <li class="breadcrumb-item active" aria-current="page">$short_title$</li>
+        $endif$
+      </ol>
+    </nav>
+  <header>
+    <div class="container">
+        <h1 class="pt-5 pb-0 display-4 title">$title$</h1>
+      $if(subtitle)$
+      <p class="subtitle lead pb-3">$subtitle$</p>
+      $endif$ $for(author)$
+      <p class="author">$author$</p>
+      $endfor$ $if(date)$
+      <p class="date text-lead pb-3">$date$</p>
+      $endif$
+
+    </div>
+
+  </header>
+  $endif$ $if(toc)$
+  <nav id="$idprefix$TOC">
+    $table-of-contents$
+  </nav>
+  $endif$ 
+  <main role="main">
+    <div class="container py-5">
+        $body$ 
+    </div>
+
+  </main>$for(include-after)$ $include-after$ $endfor$
+
+  
+
+</body>
+
+</html>
