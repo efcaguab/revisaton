@@ -57,8 +57,12 @@ Aún es muy pronto para analizar los datos de la revisión. Por ahora solo queda
 
 Compartan la herramienta con sus contactos con la etiqueta <a href="https://twitter.com/intent/tweet?text=Ayuda%20a%20saber%20si%20hubo%20fraude%20con%20los%20E-14&hashtags=YoRevisoLosE14,FraudeElectoral&url=http%3A%2F%2Frevisar-e14.com">**#YoRevisoLosE14**</a> en Twitter o Facebook. Vamos a demostrar que los ciudadanos lo hacemos mejor.
 
+<div class="sharethis-inline-share-buttons pb-3" id="share" data-description="data-description"></div>
+
 Necesitamos más amigos. Entre todos haremos la primera revisión **sistemática** de los formularios.
 
 </div>
 
 <div class="py-3"><a class="btn btn-primary btn-lg" href="/#the-meat" role="button">Quiero ayudar</a></div>
+
+
