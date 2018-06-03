@@ -3,3 +3,6 @@ https://revisar-e14.netlify.com/* http://www.revisar-e14.com/:splat 301!
 
 # These extra rules are required because HTTPS is not forced
 http://revisar-e14.netlify.com/* http://www.revisar-e14.com/:splat 301!
+
+# This will redirect all paths under /reports
+/reports/*                        /reportes/:splat
