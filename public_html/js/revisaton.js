@@ -97,13 +97,13 @@ $.ajax({
             localStorage.setItem("lastSubmission", this_submission_date)
             localStorage.setItem("notification", document.getElementById('notificationInput').checked)
             // array with submissions
-            if (localStorage.getItem("submissions") == null || localStorage.getItem("submissions") == undefined) {
-              var submissions = [this_submission_date]
-              localStorage.setItem("submissions", JSON.stringify(submissions));
+            if (localStorage.getItem("n_submissions") == null || localStorage.getItem("n_submissions") == undefined) {
+              var n_submissions = 1;
+              localStorage.setItem("n_submissions", JSON.stringify(n_submissions));
             } else {
-              var submissions = JSON.parse(localStorage.getItem("submissions"));
-              submissions.push(Date.now());
-              localStorage.setItem("submissions", submissions);
+              var n_submissions = JSON.parse(localStorage.getItem("n_submissions"));
+              n_submissions = Number(n_submissions) + 1;
+              localStorage.setItem("n_submissions", JSON.stringify(n_submissions));
             }
 
           } else {
