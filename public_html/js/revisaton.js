@@ -1,16 +1,15 @@
+// load global vars
+var global_params;
+$.ajax({
+  url: "json-data/global-vars.json",
+  dataType: 'json',
+  async: false,
+  success: function (json) {
+    global_params = json
+  }
+});
 
     $(document).ready(function () {
-
-      // load global vars
-      var global_params;
-      $.ajax({
-        url: "json-data/global-vars.json",
-        dataType: 'json',
-        async: false,
-        success: function (json) {
-          global_params = json
-        }
-      });
 
       // determine progress
       $(function(){
