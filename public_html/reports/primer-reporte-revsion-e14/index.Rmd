@@ -1,6 +1,6 @@
 ---
 title: "Calentando motores"
-subtitle: "Primer reporte- 3 Jun, 2018"
+subtitle: "Primer reporte - 3 Jun, 2018 9:30a.m."
 output: 
   html_document:
     css: 
@@ -15,19 +15,20 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 library(magrittr)
 library(ggplot2)
+
+responses <- readr::read_csv("../../../e14-main-form.csv")
 ```
 
 <div class="lead">
-El objetivo que todos nosotros compartimos es averiguar, **de manera completamente independiente**, si los problemas de estos formularios son sistemáticos o como dice la registraduría, errores humanos.
+El objetivo que todos nosotros compartimos es averiguar, **de manera completamente independiente**, si los problemas de los E-14 son sistemáticos, o como dice la registraduría, errores humanos.
 
-Son muchos formularios para revisar, y es poca la confianza que inspiran los organismos electorales para solucionar este asunto por su cuenta. 
+Son muchos formularios para revisar, y es poca la confianza que inspiran los organismos electorales para solucionar este asunto. 
 Por eso lanzamos este sitio.
 
-Ha pasado solo un poco más de un día desde que que se lanzó esta iniciativa ciudadana y la respuesta ha sido increíble. 
-Entre todos ya hemos revisado **más de 1,200 formularios** que equivalen aproximadamente al 1.3% del total. 
+Ha pasado solo un día desde que que se lanzó esta iniciativa ciudadana y la respuesta ha sido increíble. 
+Entre todos ya hemos revisado **`r nrow(responses)` formularios** que equivalen aproximadamente al `r round(nrow(responses)/94250*100,1)`1.3% del total. 
 
 ```{r message=FALSE,  out.width = '100%', out.height='300px'}
-responses <- readr::read_csv("../../../e14-main-form.csv")
 
 per_id <- responses %>% dplyr::group_by(ip, id) %>% 
   dplyr::summarise(n = n()) %>%
@@ -44,20 +45,19 @@ p <- per_id %>%
   geom_histogram(binwidth = 10, center = 55, colour = "black", fill = "#007bff") +
   theme_minimal() +
   theme(text = element_text(size = 12)) +
-  xlab("formularios revisados por ciudadano") +
+  xlab("# formularios por ciudadano") +
   ylab("frecuencia")
 
 plotly::ggplotly(p) 
 ```
 <p class="text-muted pt-2 caption">El promedio de formularios E-14 revisados por cada ciudadano es `r round(mean(per_id$n))`. Aunque la mitad de personas revisa 10 o menos formularios, algunas personas **realmente comprometidas** han revisado más de 100 formularios!<p>
 
-Aúnque es muy pronto para analizar los datos preliminares de los formularios. Por ahora solo queda darles **gracias** por su apoyo y felicidades a aquellos que han revisado muchos formularios. 
+Aúnque es muy pronto para analizar los datos de la revisión. Por ahora solo queda darles **gracias** por su apoyo y felicidades a aquellos que han contribuido significativamente. Vale mucho.
 
-Compartan la herramienta con sus contactos con la etiqueta <a href="https://twitter.com/intent/tweet?text=Ayuda%20a%20saber%20si%20hubo%20fraude%20con%20los%20E-14&hashtags=YoRevisoLosE14&url=http%3A%2F%2F127.0.0.1%3A5500%2Findex.html">**#YoRevisoLosE14**</a> en Twitter o Facebook. 
+Compartan la herramienta con sus contactos con la etiqueta <a href="https://twitter.com/intent/tweet?text=Ayuda%20a%20saber%20si%20hubo%20fraude%20con%20los%20E-14&hashtags=YoRevisoLosE14&url=http%3A%2F%2F127.0.0.1%3A5500%2Findex.html">**#YoRevisoLosE14**</a> en Twitter o Facebook. Vamos a demostrar que los ciudadanos lo hacemos mejor.
 
 Necesitamos más amigos. Entre todos haremos la primera revisión **sistemática** de los formularios.
 
 </div>
 
-<div class="sharethis-inline-share-buttons py-3" id="share" data-description="data-description"></div>
-
+<div class="py-3"><a class="btn btn-primary btn-lg" href="/#the-meat" role="button">Quiero ayudar</a></div>
