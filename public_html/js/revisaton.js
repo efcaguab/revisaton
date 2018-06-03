@@ -156,22 +156,36 @@ $.ajax({
     $(function () {
 
       var alerts = {
-        "basic" : "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Gracias!</strong> Si puedes, revisa un formulario más o <a href='http://www.revisar-e14.com/#share'>comparte</a> esta página con tus amigos.</div>", 
-        "third" : "<div class='alert alert-success fade show py-1' role='alert' id='submmission-successful-alert'><strong>Super!</strong> Ya has revisado .</div>" 
+        "basic" : "<div class='alert alert-success fade show py-1' role='alert' id='submission-successful-alert'><strong>Gracias!</strong> Si puedes, revisa un formulario más o <a href='http://www.revisar-e14.com/#share'>comparte</a> esta página con tus amigos.</div>", 
+        "third" : "<div class='alert alert-info fade show py-1' role='alert' id='submission-successful-alert'>Super. <strong>Ya vas 3!</strong> Si puedes dale otro poquito. La mayoría de personas revisa <span id='median-submissions'></span> o más. </div>",
+        "mean_minus_one" : "<div class='alert alert-info fade show py-1' role='alert' id='submission-successful-alert'>Super. <strong>Ya vas <span id='n-submissions-alert'></span>!</strong> Una más y habrás hecho más que el 50% de las personas.</div>", 
+        "max" : "<div class='alert alert-info fade show py-1' role='alert' id='submission-successful-alert'><strong>Una nota!</strong> El ciudadano más comprometido ya lleva <span id='max-submissions'></span> formularios. Te le mides al reto?.</div>"
       }
 
-      function success_alert(alert_html) {
+      function success_alert(alert_html, n_submissions) {
         
-        $("#alert-container").html(alert_html)
+        $("#alert-container").html(alert_html);
+        $("#mean-submissions").html(global_params.mean_contribution_user);
+        $("#max-submissions").html(global_params.max_contribution_user);
+        $("#n-submissions-alert").html(n_submissions);
         setTimeout(function () {
-          $("#submmission-successful-alert").alert('close')
+          $("#submission-successful-alert").alert('close')
         }, 10000);
       };
 
       if (typeof (Storage) !== "undefined") {
         if ((Date.now() - localStorage.getItem("lastSubmission") < 5000)) {
-        
-          success_alert(alerts.basic);
+          var n_submissions = JSON.parse(localStorage.getItem("n_submissions"));
+          if(n_submissions == 3){
+            success_alert(alerts.third, n_submissions)
+          } else if(n_submissions == global_params.mean_contribution_user - 1) {
+            success_alert(alerts.mean_minus_one, n_submissions)
+          } else if(n_submissions == Number(global_params.mean_contribution_user) + 5){
+            success_alert(alerts.max)
+          } else {
+            success_alert(alerts.basic);
+          }
+          
         }
       } else {
         // Sorry! No Web Storage support..
