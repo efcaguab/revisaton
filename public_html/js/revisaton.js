@@ -164,9 +164,9 @@ $.ajax({
 
       var alerts = {
         "basic" : "<div class='alert alert-success fade show py-1' role='alert' id='submission-successful-alert'><strong>Gracias!</strong> Si puedes, revisa un formulario más o <a href='http://www.revisar-e14.com/#share'>comparte</a> esta página con tus amigos.</div>", 
-        "third" : "<div class='alert alert-info fade show py-1' role='alert' id='submission-successful-alert'>Super. <strong>Ya vas 3!</strong> Si puedes dale otro poquito. La mayoría de personas revisa <span id='median-submissions'></span> o más. </div>",
+        "third" : "<div class='alert alert-info fade show py-1' role='alert' id='submission-successful-alert'>Super. <strong>Ya vas 3!</strong> Si puedes dale otro poquito. La mayoría de personas revisa <span id='mean-submissions'></span> o más. </div>",
         "mean_minus_one" : "<div class='alert alert-info fade show py-1' role='alert' id='submission-successful-alert'>Super. <strong>Ya vas <span id='n-submissions-alert'></span>!</strong> Una más y habrás hecho más que el 50% de las personas.</div>", 
-        "max" : "<div class='alert alert-info fade show py-1' role='alert' id='submission-successful-alert'><strong>Una nota!</strong> El ciudadano más comprometido ya lleva <span id='max-submissions'></span> formularios. Te le mides al reto?.</div>"
+        "max" : "<div class='alert alert-info fade show py-1' role='alert' id='submission-successful-alert'><strong>Una nota!</strong> El ciudadano más comprometido ya lleva <span id='max-submissions'></span> formularios. Te mides al reto?.</div>"
       }
 
       function success_alert(alert_html, n_submissions) {
