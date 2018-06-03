@@ -22,7 +22,8 @@ e14 <- readr::read_csv(file = "e14-main-form.csv") %>%
 ```{r basic-statistics}
 per_id <- e14 %>%
   dplyr::group_by(id) %>%
-  dplyr::summarise(n = n())
+  dplyr::summarise(n = n()) %>%
+  dplyr::mutate(r = dplyr::percent_rank(n))
 
 rate <- nrow(e14) /(as.numeric(max(e14$date)) - as.numeric(min(e14$date))) / 1000
 ```
@@ -34,7 +35,8 @@ list(max_contribution_user = max(per_id$n),
      min_date = as.numeric(min(e14$date)) * 1000, 
      max_date = as.numeric(max(e14$date)) * 1000,
      n_submissions = nrow(e14)) %>%
-  jsonlite::toJSON()
+  jsonlite::toJSON() %>%
+  write("public_html/json-data/global-vars.json")
 ```
 
 
