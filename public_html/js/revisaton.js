@@ -15,7 +15,7 @@ $.ajax({
       $(function(){
         var prec = 1000;
         var rate = global_params.rate;
-        var current_count = Number(global_params.n_submissions) + Number((Date.now() - global_params.max_date) * rate)
+        var current_count = Number(global_params.n_submissions) + Number((Date.now() - global_params.max_date) * rate) / 1000
         var progress = Math.round(current_count / 94250 * 100 * prec) / prec
         $("#progress").html(progress);
         $("#main-progress-bar").html(Math.round(progress) + "%")

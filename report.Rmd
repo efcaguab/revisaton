@@ -25,7 +25,7 @@ per_id <- e14 %>%
   dplyr::summarise(n = n()) %>%
   dplyr::mutate(r = dplyr::percent_rank(n))
 
-rate <- nrow(e14) /(as.numeric(max(e14$date)) - as.numeric(min(e14$date))) / 1000
+rate <- nrow(e14) /(as.numeric(max(e14$date)) - as.numeric(min(e14$date)))
 ```
 
 ```{r export-json}
