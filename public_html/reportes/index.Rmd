@@ -7,7 +7,7 @@ output:
       - ../style.css
     template: reportes-template.html
     theme: null
-    selfcontained: false
+    self_contained: false
 ---
 <!--
 <div class="reporte-card py-5">

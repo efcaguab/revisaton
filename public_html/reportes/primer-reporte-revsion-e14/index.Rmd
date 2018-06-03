@@ -9,7 +9,7 @@ output:
       - ../../style.css
     template: ../report-template.html
     theme: null
-    selfcontained: false
+    self_contained: false
 ---
 
 ```{r setup, include=FALSE}
