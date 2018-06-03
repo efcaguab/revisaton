@@ -127,7 +127,7 @@ $.ajax({
         );
       });
 
-      // establish unique fields
+      // establish fields on load (id, email, checked, ncontributiobs)
       $(function () {
         if (typeof (Storage) !== "undefined") {
           // establish id
@@ -142,7 +142,14 @@ $.ajax({
           if (!(localStorage.getItem("email") == null || localStorage.getItem("email") == undefined || localStorage.getItem("email") == "")) {
             $("#emailInput").attr("value", localStorage.getItem("email"));
           }
-          // establish cjecked
+          var n_submissions = localStorage.getItem("n_submissions")
+          if (!(n_submissions == null || n_submissions == undefined)){
+            if(localStorage.getItem("n_submissions") > 1){
+              $("#n-submisions-div").css("display", "block");
+              $("#n-submissions-info").html(n_submissions);
+            }
+          }
+          // establish checked
           if (!(localStorage.getItem("notification") == null || localStorage.getItem("notification") == undefined)){
             document.getElementById('notificationInput').checked = localStorage.getItem("notification");
           }
@@ -191,3 +198,7 @@ $.ajax({
         // Sorry! No Web Storage support..
       }
     });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
