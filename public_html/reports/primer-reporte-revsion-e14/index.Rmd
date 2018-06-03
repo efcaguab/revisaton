@@ -54,7 +54,7 @@ plotly::ggplotly(p)
 
 Aúnque es muy pronto para analizar los datos de la revisión. Por ahora solo queda darles **gracias** por su apoyo y felicidades a aquellos que han contribuido significativamente. Vale mucho.
 
-Compartan la herramienta con sus contactos con la etiqueta <a href="https://twitter.com/intent/tweet?text=Ayuda%20a%20saber%20si%20hubo%20fraude%20con%20los%20E-14&hashtags=YoRevisoLosE14&url=http%3A%2F%2F127.0.0.1%3A5500%2Findex.html">**#YoRevisoLosE14**</a> en Twitter o Facebook. Vamos a demostrar que los ciudadanos lo hacemos mejor.
+Compartan la herramienta con sus contactos con la etiqueta <a href="https://twitter.com/intent/tweet?text=Ayuda%20a%20saber%20si%20hubo%20fraude%20con%20los%20E-14&hashtags=YoRevisoLosE14,FraudeElectoral&url=http%3A%2F%2Frevisar-e14.netlify.com">**#YoRevisoLosE14**</a> en Twitter o Facebook. Vamos a demostrar que los ciudadanos lo hacemos mejor.
 
 Necesitamos más amigos. Entre todos haremos la primera revisión **sistemática** de los formularios.
 
