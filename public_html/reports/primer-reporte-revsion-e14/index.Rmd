@@ -20,11 +20,11 @@ library(ggplot2)
 <div class="lead">
 El objetivo que todos nosotros compartimos es averiguar, **de manera completamente independiente**, si los problemas de estos formularios son sistemáticos o como dice la registraduría, errores humanos.
 
-Son muchos formularios para revisar, y es poca la confianza que inspiran los organismos electorales para solicionar este asunto por su cuenta. 
+Son muchos formularios para revisar, y es poca la confianza que inspiran los organismos electorales para solucionar este asunto por su cuenta. 
 Por eso lanzamos este sitio.
 
-Ha pasado solo un poco más de un día desde que que se lanzó esta iniciativa ciudadana y la respuesta ha sido increible. 
-Entre todos ya hemos revisado **más de 1,200 formuarios** que equivalen aproximadamente al 1.3% del total. 
+Ha pasado solo un poco más de un día desde que que se lanzó esta iniciativa ciudadana y la respuesta ha sido increíble. 
+Entre todos ya hemos revisado **más de 1,200 formularios** que equivalen aproximadamente al 1.3% del total. 
 
 ```{r message=FALSE,  out.width = '100%', out.height='300px'}
 responses <- readr::read_csv("../../../e14-main-form.csv")
