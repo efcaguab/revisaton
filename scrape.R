@@ -1,5 +1,8 @@
 packrat::on()
 
+# Run this in cosole to be able to get selenium going
+# selenium-server -port 4444
+# ./chromedriver
 
 # Functions ---------------------------------------------------------------
 
