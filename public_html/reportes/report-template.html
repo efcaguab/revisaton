@@ -43,14 +43,18 @@
 
 <body>
   $for(include-before)$ $include-before$ $endfor$ $if(title)$
-  <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-        <li class="breadcrumb-item"><a href="/reportes">Reportes</a></li>
-        $if(short_title)$
-        <li class="breadcrumb-item active" aria-current="page">$short_title$</li>
-        $endif$
-      </ol>
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <a class="navbar-brand" href="/">#YoRevisoLosE14</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/#the-meat">Revisar</a>
+          <a class="nav-item nav-link active" href="/reportes">Reportes <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="/datos">Datos</a>
+        </div>
+      </div>
     </nav>
   <header>
     <div class="container container-narrow">
