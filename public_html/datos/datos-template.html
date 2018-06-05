@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$" $if(dir)$ dir="$dir$" $endif$>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-753645-15"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-753645-15');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" /> $for(author-meta)$
+  <meta name="author" content="$author-meta$" /> $endfor$ $if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" /> $endif$ $if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" /> $endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  $for(css)$
+  <link rel="stylesheet" href="$css$" /> $endfor$ $if(math)$ $math$ $endif$
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  $for(header-includes)$ $header-includes$ $endfor$
+
+  <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b1235a1093c0e0011b03781&product=inline-share-buttons' async='async'></script>
+<!--Adsense-->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2155390236097858",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+
+<body>
+  $for(include-before)$ $include-before$ $endfor$ $if(title)$
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <a class="navbar-brand" href="/">#YoRevisoLosE14</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/#the-meat">Revisar</a>
+          <a class="nav-item nav-link" href="/reportes">Reportes</a>
+          <a class="nav-item nav-link active" href="/datos">Datos <span class="sr-only">(current)</span></a>
+        </div>
+      </div>
+    </nav>
+  <header>
+    <div class="container container-narrow justify-content-center">
+        <h1 class="pt-5 pb-0 display-4 title text-center">$title$</h1>
+      $if(subtitle)$
+      <p class="subtitle lead pb-0 text-center">$subtitle$</p>
+      $endif$ $for(author)$
+      <p class="author pb-3 text-muted text-center">$author$</p>
+      $endfor$ $if(date)$
+      <p class="date text-lead pb-3">$date$</p>
+      $endif$
+
+    </div>
+
+  </header>
+  $endif$ $if(toc)$
+  <nav id="$idprefix$TOC">
+    $table-of-contents$
+  </nav>
+  $endif$ 
+  <main role="main">
+    <div class="container py-5 lead">
+        $body$ 
+    </div>
+
+  </main>$for(include-after)$ $include-after$ $endfor$
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b1235a1093c0e0011b03781&product=inline-share-buttons' async='async'></script>
+  <script src="navigate-to-pill.js"></script>     
+
+</body>
+
+</html>

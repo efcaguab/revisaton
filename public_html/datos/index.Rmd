@@ -1,0 +1,136 @@
+---
+title: "Datos & resultados preliminares"
+# subtitle: "Preliminares"
+
+short_title: "Primer reporte"
+output: 
+  html_document:
+    css: 
+      - https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css
+      - ../style.css
+    template: datos-template.html
+    theme: null
+    self_contained: false
+params: 
+  author: "Ultima actualización"
+author: "`r params$author`" 
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(magrittr)
+library(DT)
+library(ggplot2)
+
+responses <- readr::read_csv("../../e14-main-form.csv")
+
+formated <- responses %>%
+  dplyr::filter(nota != "666" | is.na(nota)) %>%
+  tidyr::separate(Timestamp, c("t", "z"), sep = " GMT") %>%
+  dplyr::mutate(z = paste0(z, "00"), 
+                date = paste(t, z), 
+                date = as.POSIXct(date, format = "%Y/%m/%d %I:%M:%S %p %z")) %>%
+  dplyr::arrange(desc(date)) %>%
+  dplyr::mutate(date = as.character(as.POSIXct(as.POSIXlt(date, tz = "America/Bogota"), tz = "America/Bogota")),
+                inconsistencia = dplyr::if_else(inconsistencia == "Sí", "Si", "No")) %>%
+  dplyr::select(-z, -t, -ip, -email, -notification) %>%
+  dplyr::select(date, no, id, inconsistencia, tipo_problema, perjudica_beneficia, candidato, n_votos, nota) %>%
+  dplyr::distinct(no, id, .keep_all = TRUE)
+
+n_formularios <- dplyr::n_distinct(formated$no)
+
+
+```
+
+<ul class="nav nav-pills mb-3 flex-column flex-sm-row justify-content-center" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="flex-sm-fill text-sm-center nav-link active" id="pills-anomalias-tab" data-toggle="pill" href="#pills-anomalias" role="tab" aria-controls="pills-anomalias" aria-selected="true">Resumen de resultados</a>
+</li>
+<li class="nav-item">
+<a class="flex-sm-fill text-sm-center nav-link" id="pills-formularios-tab" data-toggle="pill" href="#pills-formularios" role="tab" aria-controls="pills-formularios" aria-selected="false">Formularios revisados</a>
+</li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-anomalias" role="tabpanel" aria-labelledby="pills-home-tab">
+
+
+```{r}
+anomalies <- formated %>%
+  dplyr::group_by(no) %>%
+  dplyr::summarise(category = dplyr::case_when(
+    all(inconsistencia == "Si") ~ "E-14 con anomalía", 
+    all(inconsistencia == "No") ~ "E-14 sin anomalías", 
+    TRUE ~ "E-14 ambiguo"
+  )) %>%
+  dplyr::group_by(category) %>%
+  dplyr::summarise(n = dplyr::n_distinct(no)) %>%
+  dplyr::mutate(p = n/n_formularios)
+
+p_anomalous <- round(anomalies[anomalies$category == "E-14 con anomalía", "n"],1)
+
+
+sample_size <- n_formularios
+population <- 94250
+confidence <- 2.58
+margin_error <- (sqrt((0.25/sample_size))*confidence)*(sqrt((population-sample_size)/(population-1))*100)
+```
+
+
+<p class="text-muted text-center text-normal">Antes de empezar vale la pena recordar que estos resultados son **preliminares** y por lo tanto deben tratarse con mucha cautela. El margen de error con un 99% de confianza es del `r round(margin_error, 2)`%. Como la proporción de formularios con problemas es relativamente baja, aún necesitamos [revisar muchos más formularios](/#the-meat). Ánimo!</p>
+
+Hasta el momento, `r anomalies[anomalies$category == "E-14 con anomalía", "n"]` de los `r n_formularios` formularios E-14 que han sido revisados tiene algún tipo de anomalía. Esto equivale al `r  round(anomalies[anomalies$category == "E-14 con anomalía", "p"] * 100,1)`% de los formularios. 
+Adicionalmente `r anomalies[anomalies$category == "E-14 ambiguo", "n"]` formularios son ambiguos, es decir fueron revisados por más de una persona, y no hubo consenso respecto a los errores en el formulario.  
+
+```{r, out.width="100%", out.height ="200px", warning=FALSE}
+p <- anomalies %>%
+  # dplyr::rename(`formulario` = inconsistencia) %>%
+  ggplot(aes(text = paste0(n, " formularios (", round(p*100,1), "%)"))) +
+  geom_bar(aes(x = category, y = p, colour = category, fill = category), stat = "identity", show.legend = F) +
+  theme_minimal() +
+  ylab("") +
+  xlab("") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("E-14 con anomalía" ="#E41A1C",  "E-14 sin anomalías" = "#4DAF4A", "E-14 ambiguo" = "#377eb8")) +
+  scale_color_manual(values = c("E-14 con anomalía" ="#E41A1C",  "E-14 sin anomalías" = "#4DAF4A", "E-14 ambiguo" = "#377eb8")) +
+  coord_flip() +
+  theme(legend.position = "none")
+
+plotly::ggplotly(p, tooltip = "text")
+```
+
+
+Necesitamos más ayuda. Entre todos haremos la primera revisión **sistemática** de los formularios.
+
+</div>
+<div class="tab-pane fade pt-3" id="pills-formularios" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+En esta tabla puedes ver la información completa de los formularios que entre todos hemos revisado. 
+Puedes usar la caja de busqueda para interactuar con el contenido y ver solo los formularios con anomalias o que referencian a un determinado candidato. 
+También puedes descargar la tabla en tu compu. 
+
+<div class="text-normal">
+<div class="small py-3">
+```{r table, message=FALSE, echo=F}
+formated %>% 
+  datatable(
+    extensions = 'Buttons',
+    colnames = c('fecha/hora', 'No. E-14', 'ciudadano','anomalía', 'tipo', 'sube/baja', 'candidato', 'votos', 'notas'), 
+    caption = htmltools::tags$caption(
+      style = 'caption-side: bottom; text-align: center;',
+      'Observaciones: ', 
+      htmltools::em('La tabla muestra los datos tal como han sido recolectados y por lo tanto puede contener errores. La fecha están dadas en GMT-5. La columna "ciudadano" es un identificador que permite asociar revisiones hechas por una misma persona.')), 
+  options = list(
+    dom = 'frBtip',
+    language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json'),
+    buttons = 
+      list('csv', 'excel', 'pdf')
+  ))
+```
+</div>
+</div>
+
+
+</div>
+</div>
+
+<div class="py-5 text-center"><a class="btn btn-primary btn-lg" href="/#the-meat" role="button">Quiero ayudar a revisar!</a></div>
