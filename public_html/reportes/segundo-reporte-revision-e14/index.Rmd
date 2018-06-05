@@ -99,7 +99,8 @@ p <- anomalies %>%
   coord_flip() +
   theme(legend.position = "none")
 
-plotly::ggplotly(p, tooltip = "text")
+plotly::ggplotly(p, tooltip = "text")  %>%
+  plotly::config(displayModeBar = FALSE)
 ```
 <p class="text-muted pt-2 caption">El `r  round(anomalies[anomalies$category == "E-14 con anomalía", "p"] * 100,1)`% de los E-14 tiene anomalías, pero aun no tenemos suficientes datos para investigar a fondo las anomalías por candidato.</p>
 

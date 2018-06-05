@@ -57,7 +57,8 @@ p <- per_id %>%
   xlab("# formularios por ciudadano") +
   ylab("frecuencia")
 
-plotly::ggplotly(p) 
+plotly::ggplotly(p) %>%
+  plotly::config(displayModeBar = FALSE)
 ```
 <p class="text-muted pt-2 caption">El promedio de formularios E-14 revisados por cada ciudadano es `r round(mean(per_id$n))`. La mitad de personas revisa 10 formularios o menos, sin embargo algunas personas **realmente comprometidas** han revisado más de 100 formularios!<p>
 
