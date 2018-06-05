@@ -52,7 +52,7 @@ r2$title <- "Transparencia, ese es el nombre del juego"
 r2$csv <- "e14-main-form_2018-06-05 12-00-05 +1200.csv"
 r2$date <- get_date(r2$csv)
 r2$subtitle <- paste("Segundo reporte -", r2$date)
-r2$desc <- "Para ser transparentes hay que rendir cuentas. A partir de este momento puedes visualizar y explorar los formularios que ya se han revisado. También puedes ver un resumen gráfico que se actualiza periódicamente."
+r2$desc <- "Para ser transparentes hay que rendir cuentas. A partir de este momento, en la sección de datos puedes visualizar y explorar los formularios que ya se han revisado. También puedes ver un resumen gráfico que se actualiza periódicamente."
 r2$href <- "segundo-reporte-revision-e14"
 rmarkdown::render(file.path("public_html", "reportes", r2$href, "index.Rmd"), 
                   params = r2)
