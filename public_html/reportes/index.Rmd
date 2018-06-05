@@ -12,7 +12,7 @@ params:
   reportes: "`r list()`"
 ---
 
-```{r, results='asis'}
+```{r, results='asis', echo = F}
 library(htmltools)
 library(magrittr)
 render_reporte <- function(x){
@@ -20,14 +20,15 @@ render_reporte <- function(x){
       a(href = x$href, 
         h2(class = "reportes-title", x$title), 
         p(class = "reporte-card-subtitle lead", x$subtitle), 
-        p(class = "reporte-card-snippet", x$desc)
+        p(class = "reporte-card-snippet", x$desc), 
+        p(class = "text-muted", "Ver más...")
         )
       )
 }
 ```
 
 
-```{r, results='as.is'}
+```{r, results='as.is', echo = F}
 
 d <- div()
  
