@@ -1,4 +1,5 @@
 # master update
+library(magrittr)
 source("functions.R")
 date_format <- '%I:%M%p %d %b, %Y'
 
