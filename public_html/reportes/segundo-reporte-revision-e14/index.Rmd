@@ -1,0 +1,114 @@
+---
+output: 
+  html_document:
+    css: 
+      - https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css
+      - ../../style.css
+    template: ../report-template.html
+    theme: null
+    self_contained: false
+params:
+  csv: "e14-main-form_2018-06-05 12-00-05 +1200.csv"
+  title: "Transparencia, ese es el nombre del juego"
+  subtitle: "Segundo reporte"
+  short_title: "Segundo reporte"
+  date:
+  desc:
+  href: 
+title: "`r params$title`"  
+subtitle: "`r params$subtitle`"
+short_title: "r params$short_title"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(magrittr)
+library(ggplot2)
+
+responses <- readr::read_csv(paste0("../../../", params$csv))
+```
+
+Transparencia es el espíritu de esta iniciativa ciudadana. 
+Sin embargo, después de un par de días trabajando juntos revisando los formularios nos dimos cuenta que podíamos hacer un aún mejor trabajo si rendimos cuentas a todos los ciudadanos que han ayudado.
+Por eso hemos decidido hacer completamente públicos **todos** los datos recolectados. 
+Nos pertenecen a todos! 
+
+Puedes explorarlos e incluso descargarlos <a href="/datos#pills-formularios">aquí</a>. 
+Los datos son anónimos y no contienen tu información personal. 
+
+```{r}
+formated <- responses %>%
+  dplyr::filter(nota != "666" | is.na(nota)) %>%
+  tidyr::separate(Timestamp, c("t", "z"), sep = " GMT") %>%
+  dplyr::mutate(z = paste0(z, "00"), 
+                date = paste(t, z), 
+                date = as.POSIXct(date, format = "%Y/%m/%d %I:%M:%S %p %z")) %>%
+  dplyr::arrange(desc(date)) %>%
+  dplyr::mutate(date = as.character(as.POSIXct(as.POSIXlt(date, tz = "America/Bogota"), tz = "America/Bogota")),
+                inconsistencia = dplyr::if_else(inconsistencia == "Sí", "Si", "No")) %>%
+  dplyr::select(-z, -t, -ip, -email, -notification) %>%
+  dplyr::select(date, no, id, inconsistencia, tipo_problema, perjudica_beneficia, candidato, n_votos, nota) %>%
+  dplyr::distinct(no, id, .keep_all = TRUE)
+
+n_formularios <- dplyr::n_distinct(formated$no)
+n_ciudadanos <- dplyr::n_distinct(responses$id)
+
+multiple <- responses %>%
+  dplyr::group_by(no) %>%
+  dplyr::summarise(n = dplyr::n_distinct(id)) %>%
+  dplyr::filter(n > 1)
+```
+
+
+También estamos muy emocionados porque el número de formularios que hemos revisado sigue creciendo. 
+Ya son `r n_formularios` formularios que hemos revisado entre más de 100 personas.
+Con esta cantidad de respuestas ya podemos empezar a explorar los datos. 
+
+```{r}
+
+
+anomalies <- formated %>%
+  dplyr::group_by(no) %>%
+  dplyr::summarise(category = dplyr::case_when(
+    all(inconsistencia == "Si") ~ "E-14 con anomalía", 
+    all(inconsistencia == "No") ~ "E-14 sin anomalías", 
+    TRUE ~ "E-14 ambiguo"
+  )) %>%
+  dplyr::group_by(category) %>%
+  dplyr::summarise(n = n()) %>%
+  dplyr::mutate(p = n/n_formularios)
+
+p_anomalous <- round(anomalies[anomalies$category == "E-14 con anomalía", "n"],1)
+
+```
+
+Por ahora hemos encontrado que `r anomalies[anomalies$category == "E-14 con anomalía", "n"]` de los formularios E-14 que han sido revisados tiene algún tipo de anomalía. Esto equivale al `r  round(anomalies[anomalies$category == "E-14 con anomalía", "p"] * 100,1)`% de los formularios. 
+El margen de confianza es de aproximadamente el 2.6% así que todavía necesitamos más revisiones para poder analizar los tipos de anomalías y los candidatos a los que afecta.
+
+```{r, out.width="100%", out.height ="200px", warning=FALSE}
+p <- anomalies %>%
+  # dplyr::rename(`formulario` = inconsistencia) %>%
+  ggplot(aes(text = paste0(n, " formularios (", round(p*100,1), "%)"))) +
+  geom_bar(aes(x = category, y = p, colour = category, fill = category), stat = "identity", show.legend = F) +
+  theme_minimal() +
+  ylab("") +
+  xlab("") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("E-14 con anomalía" ="#E41A1C",  "E-14 sin anomalías" = "#4DAF4A", "E-14 ambiguo" = "#377eb8")) +
+  scale_color_manual(values = c("E-14 con anomalía" ="#E41A1C",  "E-14 sin anomalías" = "#4DAF4A", "E-14 ambiguo" = "#377eb8")) +
+  coord_flip() +
+  theme(legend.position = "none")
+
+plotly::ggplotly(p, tooltip = "text")
+```
+<p class="text-muted pt-2 caption">El `r  round(anomalies[anomalies$category == "E-14 con anomalía", "p"] * 100,1)`% de los E-14 tiene anomalías, pero aun no tenemos suficientes datos para investigar a fondo las anomalías por candidato.</p>
+
+La tabla con los datos es valiosa pero es difícil ver lo que está pasando. 
+El gráfico que ves en este reporte, se actualizará periódicamente en la página de [datos y resultados](/datos).
+
+Gracias y felicidades a todos los que hemos ayudado. 
+Recuerden compartir esta herramienta con sus contactos con la etiqueta [**#YoRevisoLosE14**](https://twitter.com/intent/tweet?text=Ayuda%20a%20saber%20si%20hubo%20fraude%20con%20los%20E-14&hashtags=YoRevisoLosE14,FraudeElectoral&url=http%3A%2F%2Frevisar-e14.com) en Twitter o Facebook. Vamos a demostrar que los ciudadanos lo hacemos mejor.
+
+<div class="sharethis-inline-share-buttons pb-5 pt-4" id="share" data-description="data-description"></div>
+
+
