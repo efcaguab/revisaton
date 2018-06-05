@@ -1,7 +1,4 @@
 ---
-title: "Calentando motores"
-subtitle: "Primer reporte - 3 Jun, 2018 9:30a.m."
-short_title: "Primer reporte"
 output: 
   html_document:
     css: 
@@ -10,6 +7,17 @@ output:
     template: ../report-template.html
     theme: null
     self_contained: false
+params:
+  csv: "e14-main-form_2018-06-04 02-12-15 +1200.csv"
+  subtitle: "Primer reporte"
+  title: "Calentando motores"
+  short_title: "Primer reporte"
+  date:
+  desc:
+  href: 
+title: "`r params$title`"  
+subtitle: "`r params$subtitle`"
+short_title: "r params$short_title"
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(magrittr)
 library(ggplot2)
 
-responses <- readr::read_csv("../../../e14-main-form_2018-06-04 2-12-15 am +1200.csv")
+responses <- readr::read_csv(paste0("../../../", params$csv))
 ```
 
 <div class="lead">
@@ -43,7 +51,7 @@ per_email <- responses %>% dplyr::group_by(email) %>%
 p <- per_id %>% 
   ggplot(aes(x = n )) +
   # stat_density(geom = "line") + 
-  geom_histogram(binwidth = 10, center = 55, colour = "black", fill = "#007bff") +
+  geom_histogram(binwidth = 10, center = 55, colour = "black", fill = "#f8f9fa") +
   theme_minimal() +
   theme(text = element_text(size = 12)) +
   xlab("# formularios por ciudadano") +
