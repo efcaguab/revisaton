@@ -57,9 +57,21 @@ r2$href <- "segundo-reporte-revision-e14"
 rmarkdown::render(file.path("public_html", "reportes", r2$href, "index.Rmd"), 
                   params = r2)
 
+# reporte 3
+r3 <- list()
+r3$title <- "La mayoría de errores beneficia a un candidato"
+r3$csv <- "e14-main-form_2018-06-10 22-06-26 +1200.csv"
+r3$date <- get_date(r3$csv)
+r3$subtitle <- paste("Tercer reporte -", r3$date)
+r3$desc <- "Para ser transparentes hay que rendir cuentas. A partir de este momento, en la sección de datos puedes visualizar y explorar los formularios que ya se han revisado. También puedes ver un resumen gráfico que se actualiza periódicamente."
+r3$href <- "tercer-reporte-revision-e14"
+rmarkdown::render(file.path("public_html", "reportes", r3$href, "index.Rmd"), 
+                  params = r3)
+
+
 # main
 # list(reports = list(r1, r1)) %>%
   # yaml::write_yaml("public_html/reportes/_output.yaml")
 rmarkdown::render("public_html/reportes/index.Rmd", 
-                  params = list(reportes = list(r2,r1)))
+                  params = list(reportes = list(r2,r1,r3)))
 
